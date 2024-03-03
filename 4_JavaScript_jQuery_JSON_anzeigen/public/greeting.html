@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Greeting</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .black {
+            color: black;
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .yellow {
+            color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="greeting"></div>
+
+    <script>
+        $(document).ready(function () {
+            $.getJSON('greeting.json', function (data) {
+                const greeting = `
+                    <span class="black">Hallo</span> 
+                    <span class="blue">${data.salutation}</span> 
+                    <span class="red">${data.firstname}</span> 
+                    <span class="yellow">${data.surname}</span>`;
+                $('#greeting').html(greeting);
+            });
+        });
+    </script>
+</body>
+
+</html>
